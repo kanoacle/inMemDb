@@ -1,3 +1,4 @@
+/*jshint esversion: 6*/
 const users = {
   '1': { name: 'Alice', age: 12, gender: 'f', jobType: 'st' },
   '2': { name: 'Bob', age: 21, gender: 'm', jobType: 'dv' },
@@ -19,29 +20,32 @@ const employer = {
   na: 'N/A'
 };
 
-function byId(id) {
+const byId = (id) => {
+  if (typeof (id) !== 'number') {
+    return 'Id number must be a number.';
+  }
+  return users[id.toString()];
+};
 
-}
+const youngest = () => {
 
-function youngest() {
+};
 
-}
+const oldest = () => {
 
-function oldest() {
+};
 
-}
+const males  = () => {
 
-function males () {
+};
 
-}
+const females = () => {
 
-function females() {
+};
 
-}
+const employees = (employer) => {
 
-function employees(employer) {
-
-}
+};
 
 const functions = {
   byId: byId,
