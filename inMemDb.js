@@ -14,6 +14,8 @@ const users = {
   '12': { name: 'Liam', age: 20, gender: 'm', jobType: 'st' }
 };
 
+const userArray = [];
+
 const employer = {
   dv: 'DevLeague',
   st: 'Student',
@@ -28,19 +30,63 @@ const byId = (id) => {
 };
 
 const youngest = () => {
-
+  let young;
+  for (let key in users) {
+    if (users.hasOwnProperty(key)) {
+      userArray.push(users[key]);
+      for (var i = 0; i < userArray.length; i++) {
+        if (userArray[i].age < young || young === undefined) {
+          young = userArray[i].age;
+        }
+      }
+    }
+  }
+  return young;
 };
 
 const oldest = () => {
-
+  let old;
+  for (let key in users) {
+    if (users.hasOwnProperty(key)) {
+      userArray.push(users[key]);
+      for (var i = 0; i < userArray.length; i++) {
+        if (userArray[i].age > old || old === undefined) {
+          old = userArray[i].age;
+        }
+      }
+    }
+  }
+  return old;
 };
 
 const males  = () => {
-
+  let males = [];
+  for (let key in users) {
+    if (users.hasOwnProperty(key)) {
+      userArray.push(users[key]);
+      for (var i = 0; i < userArray.length; i++) {
+        if (userArray[i].gender === 'm' && males.indexOf(userArray[i]) === -1) {
+          males.push(userArray[i]);
+        }
+      }
+    }
+  }
+  return males;
 };
 
 const females = () => {
-
+  let females = [];
+  for (let key in users) {
+    if (users.hasOwnProperty(key)) {
+      userArray.push(users[key]);
+      for (var i = 0; i < userArray.length; i++) {
+        if (userArray[i].gender === 'f' && females.indexOf(userArray[i]) === -1) {
+          females.push(userArray[i]);
+        }
+      }
+    }
+  }
+  return females;
 };
 
 const employees = (employer) => {
